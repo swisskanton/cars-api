@@ -4,22 +4,12 @@ import carsRoutes from "./routes/cars.js";
 import booksRoutes from "./routes/books.js";
 import swaggerUi from "swagger-ui-express";
 import path from "path";
-import { fileURLToPath } from "url";
-import { readFile } from "fs/promises";
-
-const carsSwaggerDocument = JSON.parse(
-	await readFile(new URL("./cars-swagger-doc.json", import.meta.url))
-);
-const booksSwaggerDocument = JSON.parse(
-	await readFile(new URL("./books-swagger-doc.json", import.meta.url))
-);
-const apiSwaggerDocument = JSON.parse(
-	await readFile(new URL("./api-swagger-doc.json", import.meta.url))
-);
+import __dirname from "./util/rootdir.js";
+import { carsSwaggerDocument, booksSwaggerDocument } from "./util/swaggerfiles.js";
 
 const PORT = 3000;
 const app = express();
-const __dirname = path.join(path.dirname(fileURLToPath(import.meta.url)));
+
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));

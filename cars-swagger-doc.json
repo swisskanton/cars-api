@@ -6,14 +6,14 @@
     "description": "Cars API"
   },
   "host": "localhost:3000",
-  "basePath": "/cars",
+  "basePath": "/api/cars",
   "schemes": [
     "http"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "Gets all cars",
+        "description": "Get all cars",
         "responses": {
           "200": {
             "description": "OK"
@@ -63,7 +63,7 @@
     },
     "/{id}": {
       "get": {
-        "description": "Get car by id",
+        "description": "Get a car by id",
         "parameters": [
           {
             "name": "id",

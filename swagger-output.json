@@ -5,10 +5,11 @@
     "version": "1.0.0",
     "description": "Cars API"
   },
-  "host": "localhost:3000",
+  // "host": "localhost:3000",
+  "host": "surveys-5jvt.onrender.com",
   "basePath": "/cars",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {

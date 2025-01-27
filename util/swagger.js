@@ -9,6 +9,7 @@ const doc = {
   host: 'localhost:3000',
   basePath: "/api"
 };
+// host: "surveys-5jvt.onrender.com",
 
 const outputFile = '../api-swagger-doc.json';
 const routes = ['../routes/cars.js', '../routes/books.js'];

@@ -43,6 +43,9 @@ export const createBook = async (req, res) => {
 
 export const updateBook = async (req, res) => {
 	try {
+		if (req.params.id <= 10) {
+			return res.status(400).json({ message: "Protected base data" });
+		}
 		const { title, author, year } = req.body;
 		if (!title || !author || !year) {
 			return res.status(400).json({ message: "Missing data" });
@@ -63,6 +66,9 @@ export const updateBook = async (req, res) => {
 
 export const deleteBook = async (req, res) => {
 	try {
+		if (req.params.id <= 10) {
+			return res.status(400).json({ message: "Protected base data" });
+		}
 		const book = await Book.findByPk(req.params.id);
 		if (!book) {
 			return res.status(404).json({ message: "Book not found" });

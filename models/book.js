@@ -18,7 +18,6 @@ try {
 	await Book.bulkCreate([
 		{ title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
 		{ title: "The Lord of the Rings", author: "J. R. R. Tolkien",	year: 1954 },
-		{	title: "The Lord of the Rings",	author: "J. R. R. Tolkien",	year: 1954 },
 		{ title: "Philosopher's Stone", author: "J. K. Rowling", year: 1997 },
 		{ title: "Chamber of Secrets", author: "J. K. Rowling", year: 1998 },
 		{ title: "Prisoner of Azkaban", author: "J. K. Rowling", year: 1999 },

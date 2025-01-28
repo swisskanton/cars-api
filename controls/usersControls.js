@@ -46,7 +46,7 @@ export const createUser = async (req, res) => {
 export const updateUser = async (req, res) => {
 	try {
     if (req.params.id <= 5) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const user = await User.findByPk(req.params.id);
 		if (!user) {
@@ -74,7 +74,7 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
 	try {
 		if (req.params.id <= 5) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const user = await User.findByPk(req.params.id);
 		if (!user) {

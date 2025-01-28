@@ -43,7 +43,7 @@ export const createPhone = async (req, res) => {
 export const updatePhone = async (req, res) => {
 	try {
 		if (req.params.id <= 5) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const phone = await Phone.findByPk(req.params.id);
 		if (!phone) {
@@ -63,7 +63,7 @@ export const updatePhone = async (req, res) => {
 export const deletePhone = async (req, res) => {
 	try {
 		if (req.params.id <= 5) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const phone = await Phone.findByPk(req.params.id);
 		if (!phone) {

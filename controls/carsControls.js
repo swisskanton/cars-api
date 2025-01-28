@@ -47,7 +47,7 @@ export const createCar = async (req, res) => {
 export const updateCar = async (req, res) => {
 	try {
 		if (req.params.id <= 4) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const { model, brand, year } = req.body;
 		if (!model || !brand || !year) {
@@ -71,7 +71,7 @@ export const updateCar = async (req, res) => {
 export const deleteCar = async (req, res) => {
 	try {
 		if (req.params.id <= 4) {
-			return res.status(400).json({ message: "Protected base data" });
+			return res.status(405).json({ message: "Protected base data" });
 		}
 		const car = await Car.findByPk(req.params.id);
 		if (!car) {

@@ -15,3 +15,7 @@ export const phonesSwaggerDocument = JSON.parse(
 export const usersSwaggerDocument = JSON.parse(
 	await readFile(new URL("../users-swagger-doc.json", import.meta.url))
 );
+
+export const wizardsSwaggerDocument = JSON.parse(
+	await readFile(new URL("../wizards-swagger-doc.json", import.meta.url))
+);

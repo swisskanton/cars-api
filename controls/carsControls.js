@@ -5,7 +5,6 @@ export const getAllCars = async (req, res) => {
 		const cars = await Car.findAll();
 		res.status(200).json(cars);
 	} catch (error) {
-		console.error(error);
 		res.status(500).json({ message: error.message });
 	}
 };
@@ -18,7 +17,6 @@ export const getCarById = async (req, res) => {
 		}
 		res.status(200).json(car);
 	} catch (error) {
-		console.error(error);
 		res.status(500).json({ message: error.message });
 	}
 };
@@ -39,7 +37,6 @@ export const createCar = async (req, res) => {
 		}
 		res.status(201).json(result.toJSON());
 	} catch (error) {
-		console.error(error);
 		res.status(500).json({ message: error.message });
 	}
 };
@@ -63,7 +60,6 @@ export const updateCar = async (req, res) => {
 		);
 		res.status(201).json({ message: "Update successful" });
 	} catch (error) {
-		// console.error(error);
 		res.status(500).json({ message: error.message });
 	}
 };
@@ -83,7 +79,6 @@ export const deleteCar = async (req, res) => {
 		}
 		res.status(200).json({ message: "Delete successful" });
 	} catch (error) {
-		console.error(error);
 		res.status(500).json({ message: error.message });
 	}
 };

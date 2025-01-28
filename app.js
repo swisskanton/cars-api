@@ -4,6 +4,7 @@ import carsRoutes from "./routes/cars.js";
 import booksRoutes from "./routes/books.js";
 import phonesRoutes from "./routes/phones.js";
 import usersRoutes from "./routes/users.js";
+import wizardsRoutes from './routes/wizards.js';
 import swaggerUi from "swagger-ui-express";
 import path from "path";
 import __dirname from "./util/rootdir.js";
@@ -37,11 +38,17 @@ app.use(
 	swaggerUi.serveFiles(docs.usersSwaggerDocument),
 	swaggerUi.setup(docs.usersSwaggerDocument)
 );
+app.use(
+	"/wizards-docs",
+	swaggerUi.serveFiles(docs.wizardsSwaggerDocument),
+	swaggerUi.setup(docs.wizardsSwaggerDocument)
+);
 
 app.use("/api/cars", carsRoutes);
 app.use("/api/books", booksRoutes);
 app.use("/api/phones", phonesRoutes);
 app.use("/api/users", usersRoutes);
+app.use("/api/wizards", wizardsRoutes);
 
 app.listen(PORT, () => {
 	console.log(`Server runs on port ${PORT}`);

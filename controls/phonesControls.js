@@ -33,7 +33,7 @@ export const createPhone = async (req, res) => {
 		if (phone) {
 			return res.status(409).json({ message: "Phone already exists" });
 		}
-		const newPhone = await Phone.create({ brand, model, !!nfc, camera });
+		const newPhone = await Phone.create({ brand, model, nfc: !!nfc, camera });
 		res.status(201).json(newPhone.toJSON());
 	} catch (error) {
 		res.status(500).json({ message: error.message });
@@ -53,7 +53,7 @@ export const updatePhone = async (req, res) => {
 		if (!brand || !model || !nfc || !camera) {
 			return res.status(400).json({ message: "Missing data" });
 		}
-		const updatedPhone = await phone.update({ brand, model, nfc, camera });
+		const updatedPhone = await phone.update({ brand, model, nfc: !!nfc, camera });
 		res.status(200).json({ message: "Update successful" });
 	} catch (error) {
 		res.status(500).json({ message: error.message });

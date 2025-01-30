@@ -24,7 +24,7 @@ export const getPhoneById = async (req, res) => {
 export const createPhone = async (req, res) => {
 	try {
 		const { brand, model, nfc, camera } = req.body;
-		if (!brand || !model || !nfc || !camera) {
+		if (!brand || !model || !`${nfc}` || !camera) {
 			return res.status(400).json({ message: "Missing data" });
 		}
 		const phone = await Phone.findOne({
@@ -33,7 +33,7 @@ export const createPhone = async (req, res) => {
 		if (phone) {
 			return res.status(409).json({ message: "Phone already exists" });
 		}
-		const newPhone = await Phone.create({ brand, model, nfc, camera });
+		const newPhone = await Phone.create({ brand, model, !!nfc, camera });
 		res.status(201).json(newPhone.toJSON());
 	} catch (error) {
 		res.status(500).json({ message: error.message });
